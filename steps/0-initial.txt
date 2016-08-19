@@ -5,3 +5,28 @@
 
     <Label [text]="message" class="message" textWrap="true"></Label>
 </StackLayout>
+
+import {Component} from "@angular/core";
+
+@Component({
+    selector: "my-app",
+    templateUrl: "app.component.html",
+})
+export class AppComponent {
+    public counter: number = 16;
+
+    public message(): string {
+        if (this.counter > 0) {
+            return this.counter + " taps left";
+        } else {
+            return "Hoorraaay! \nYou are ready to start building!";
+        }
+    }
+    
+    public onTap() {
+        this.counter--;
+        let msg = this.message();
+        console.log(msg);
+        alert(msg);
+    }
+}
