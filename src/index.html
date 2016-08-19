@@ -16,24 +16,28 @@
                 <section data-markdown>
                     <h1>Angular 2 + Nativescript</h1>
                     <p>Not just another Javascript framework</p>
+                    <div style="font-size:88%">
+                        <span>Aaron Starkston</span>
+                        <span>Owen Craig</span>
+                    </div>
                     <img src="resources/nativescript_logo.svg" style="width:30%"/>
                 </section>
                 <section>
                     <h2>What are we talking about</h2>
-                    <ul>
+                    <ul style="text-align:left">
                         <li>What is Nativescript?</li>
                         <li>Why should you care?</li>
                         <li>How does it all work?</li>
                         <li>Going Native</li>
                         <li>Upgrade Demo</li>
                     </ul>
-                    <p>DISCLAIMER: all examples in this presentation are Android-focused</p>
+                    <p style="text-align:left">*All examples in this presentation are Android-focused</p>
                 </section>
                 <section>
                     <h2>What is Nativescript?</h2>
                     <ul>
-                        <li>(Another) Javascript framework</li>
-                        <li>Create mobile applications on multiple platforms</li>
+                        <li>(Another) Javascript framework for building mobile applications</li>
+                        <li>Build out on iOS, Android, and soon Windows</li>
                     </ul>
                     <p>Most importantly, you can write code, access native APIs, test, and deploy a fully functioning app all in one place!</p>
                 </section>
@@ -42,7 +46,7 @@
                     <ul>
                         <li>It's backed by Telerik</li>
                         <li>A cost-effective solution for mobile development</li>
-                        <li>Nativescript apps are asily compatible with back-end systems, uses built-in modules called Data Connectors</li>
+                        <li>Nativescript apps are easily compatible with back-end systems, uses built-in modules called Data Connectors</li>
                         <li>You can actually write native code</li>
                     </ul>
                 </section>
@@ -50,7 +54,7 @@
                     <section>
                     <h2>How does Nativescript work</h2>
                     <p style="text-align:left">Believe it or not, each Nativescript app runs like a normal Javascript application</p>
-                    <p style="text-align:left">Sling some code -> Kick off the build -> Build spits out something -> Test and repeat</p>
+                    <p style="text-align:left">Sling some code -> Kick off the build -> Build spits out your app -> Test and repeat</p>
                     </section>
                     <section>
                         <h2>Java and Javascript</h2> 
@@ -58,7 +62,7 @@
                             <li>NS apps run on a Javascript engine on each device (i.e. V8 or Javascript Core)</li>
                             <li>When instantiated, NS injects a global object <code>android</code> that has all possible properties and methods available</li>
                             <li>NS is able to inject using the V8 API, similar to dependency injection with <code>require()</code></li>
-                            <li>Nativescript knows to translate any Javascript using the android object to a given method through reflection</li>
+                            <li>Nativescript knows to translate any Javascript using the <code>android</code> object to a given method through reflection</li>
                             <li>Once found, a proxy Javascript object of the Java object is created and stored locally for use</li> 
                         </ul>
                     </section>
@@ -74,17 +78,18 @@
                 </section>
                 <section>
                     <section>
-                        <h2>Get your app up and running</h2>
+                        <h2>Going Native</h2>
+                        <p>Fun things to get going on any platform</p>
+                    </section>
+                    <section>
+                        <h2>Get your app up and running with the Nativescript CLI</h2>
                         <ul>
-                            <li>Get all the prerequesites installed</li>
+                            <li>Get all the prerequesites installed (easier said than done)</li>
                             <li><code>tns create [project] --ng</code></li>
                             <li><code>tns livesync [platform] --watch</code></li>
                             <li><code>livesync</code> combines the preparation, build, and some other steps into one command, and --watch allows for live updates</li>
+                            <li>Other commands include <code>init</code>, <code>test</code>, and <code>deploy</code></li>
                         </ul>
-                    </section>
-                    <section>
-                        <h2>Going Native</h2>
-                        <p>Fun things to get going on any platform</p>
                     </section>
                     <section>
                         <h2>Layouts</h2>
@@ -94,6 +99,7 @@
                             <li>Predefined layouts will have varying performance based on complexity</li>
                             <li>Base class for layouts has alignment, size, and spacing properties</li>
                         </ul>
+                        <p>Demo!</p>
                     </section>
                     <section>
                         <h2>Events, Data Binding, Angular Aspects</h2>
@@ -111,6 +117,7 @@
                             <li>Plugins differ from modules such that they have the ability to run native code in iOS and Android (and soon Windows)</li>
                             <li>Plugins are installed using the Nativescript CLI, even though they're just fancy NPM modules</li>
                         </ul>
+                        <p>Demo!</p>
                     </section>
                     <section>
                         <h2>Writing Native Scripts</h2>
@@ -119,6 +126,7 @@
                             <li>This is a great way to override normal functionality</li>
                             <li>Note: this will use the reflection method we discussed at the beginning of the presentation</li>
                         </ul>
+                        <p>Demo!</p>
                     </section>
                 </section>
                 <section>
