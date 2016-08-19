@@ -1,0 +1,41 @@
+<StackLayout horizontalAlignment="center">
+    <Label text="Have an apple" class="title" horizontalAlignment="center"></Label>
+     
+     <StackLayout >
+        <Button text="Eat one" (tap)="onTap()"></Button>
+        <Button text="I want more than one" (tap)="fast()"></Button>
+        <Button text="Reset" (tap)="reset()" class="reset"></Button>
+     </StackLayout>
+</StackLayout>
+
+import {Component} from "@angular/core";
+
+@Component({
+    selector: "my-app",
+    templateUrl: "app.component.html",
+})
+export class AppComponent {
+    public counter: number = 16;
+
+    public message(): string {
+        if (this.counter > 0) {
+            return this.counter + " apples left.";
+        } else {
+            return "Sorry kid, you're out of apples.";
+        }
+    }
+    
+    public onTap() {
+        this.counter--;
+        let msg = this.message();
+        alert(msg);
+    }
+
+    public fast() {
+        this.counter = 1;
+    }
+
+    public reset() {
+        this.counter = 16;
+    }
+}

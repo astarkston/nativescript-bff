@@ -1,0 +1,50 @@
+import {Component} from "@angular/core";
+import {DialogService} from "./utils/dialog";
+
+@Component({
+    selector: "my-app",
+    templateUrl: "app.component.html",
+    providers: [DialogService]
+})
+
+export class AppComponent {
+
+    constructor(private DialogService: DialogService) { }
+
+    public showNewMessage() {
+        this.DialogService.getDialog("Important alert!");
+    }
+}
+
+<StackLayout>
+    <TextField hint="Custom alert"></TextField>
+    <Button text="Send the important alert" (tap)="showNewMessage()"></Button>
+</StackLayout>
+
+---UTILS FOLDER---
+import * as dialogsModule from "ui/dialogs";
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class DialogService {
+
+  constructor() { }
+
+  getDialog(message): any {
+    return dialogsModule.alert({
+      title: "Overpowering Dialog",
+      okButtonText: "OK",
+      message: "I don't care what message you're trying to send."
+    });
+  }
+
+}
+// import * as dialogsModule from "ui/dialogs";
+
+// export function alert(message: string) {
+//   return dialogsModule.alert({
+//     title: "Groceries",
+//     okButtonText: "OK",
+//     message: message
+//   });
+// }

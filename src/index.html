@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Angular 2 + Nativescript</title>
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <h1>Angular 2 + Nativescript</h1>
+                    <p>Not just another Javascript framework</p>
+                    <img src="resources/nativescript_logo.svg" style="width:30%"/>
+                </section>
+                <section>
+                    <h2>What are we talking about</h2>
+                    <ul>
+                        <li>What is Nativescript?</li>
+                        <li>Why should you care?</li>
+                        <li>How does it all work?</li>
+                        <li>Going Native</li>
+                        <li>Upgrade Demo</li>
+                    </ul>
+                    <p>DISCLAIMER: all examples in this presentation are Android-focused</p>
+                </section>
+                <section>
+                    <h2>What is Nativescript?</h2>
+                    <ul>
+                        <li>(Another) Javascript framework</li>
+                        <li>Create mobile applications on multiple platforms</li>
+                    </ul>
+                    <p>Most importantly, you can write code, access native APIs, test, and deploy a fully functioning app all in one place!</p>
+                </section>
+                <section>
+                    <h2>Why Nativescript?</h2>
+                    <ul>
+                        <li>It's backed by Telerik</li>
+                        <li>A cost-effective solution for mobile development</li>
+                        <li>Nativescript apps are asily compatible with back-end systems, uses built-in modules called Data Connectors</li>
+                        <li>You can actually write native code</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                    <h2>How does Nativescript work</h2>
+                    <p style="text-align:left">Believe it or not, each Nativescript app runs like a normal Javascript application</p>
+                    <p style="text-align:left">Sling some code -> Kick off the build -> Build spits out something -> Test and repeat</p>
+                    </section>
+                    <section>
+                        <h2>Java and Javascript</h2> 
+                        <ul>
+                            <li>NS apps run on a Javascript engine on each device (i.e. V8 or Javascript Core)</li>
+                            <li>When instantiated, NS injects a global object <code>android</code> that has all possible properties and methods available</li>
+                            <li>NS is able to inject using the V8 API, similar to dependency injection with <code>require()</code></li>
+                            <li>Nativescript knows to translate any Javascript using the android object to a given method through reflection</li>
+                            <li>Once found, a proxy Javascript object of the Java object is created and stored locally for use</li> 
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Post-Injection</h2>
+                        <p>Somehow we need to translate Javascript to Java, then back to Javascript</p>
+                        <ul>
+                            <li>Nativescript uses Android's Java Native Interface (JNI) to talk between V8's C++ engine and the Android API</li>
+                            <li>JNI acts as the translator between C++ and Java</li>
+                            <li>Nativescript takes the desired method in C++, instantiates a Java object with JNI, and returns a Javascript object with the desired result</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Get your app up and running</h2>
+                        <ul>
+                            <li>Get all the prerequesites installed</li>
+                            <li><code>tns create [project] --ng</code></li>
+                            <li><code>tns livesync [platform] --watch</code></li>
+                            <li><code>livesync</code> combines the preparation, build, and some other steps into one command, and --watch allows for live updates</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Going Native</h2>
+                        <p>Fun things to get going on any platform</p>
+                    </section>
+                    <section>
+                        <h2>Layouts</h2>
+                        <p>You can create a predefined layout or create your own using properties</p>
+                        <ul>
+                            <li>Predefined: Absolute, Dock, Grid, Stack</li>
+                            <li>Predefined layouts will have varying performance based on complexity</li>
+                            <li>Base class for layouts has alignment, size, and spacing properties</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Events, Data Binding, Angular Aspects</h2>
+                        <ul>
+                            <li>Conceptually, most practices are the same (bindings, observables, DI)</li>
+                            <li>Routing is the only concept that is slightly different, but still functionally similar</li>
+                            <li>Nativescript uses <code>page-router-outlet</code> instead of <code>router-outlet</code> to handle routing situations specific to iOS and Android applications</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Modules and Plugins</h2>
+                        <ul>
+                            <li>Modules in Nativescript are the same as NPM packages are to any Javascript project</li>
+                            <li>Modules come out of the box or can be installed using <code>NPM install</code></li>
+                            <li>Plugins differ from modules such that they have the ability to run native code in iOS and Android (and soon Windows)</li>
+                            <li>Plugins are installed using the Nativescript CLI, even though they're just fancy NPM modules</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Writing Native Scripts</h2>
+                        <ul>
+                            <li>Nativescript allows developers to tap into the native APIs very easily</li>
+                            <li>This is a great way to override normal functionality</li>
+                            <li>Note: this will use the reflection method we discussed at the beginning of the presentation</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h2>Final Thoughts</h2>
+                    <p style="text-align:left;">Nativescript is a great way to get started in mobile dev</p>
+                    <p style="text-align:left;">As a framework, it can easily battle it out with Ionic, but has some work to do with Xamarin</p>
+                </section>
+            </div>
+        </div>
+        <!-- bower:js -->
+        <!-- endbower -->
+        <!-- inject:js -->
+        <!-- endinject -->
+        <script>
+                            Reveal.initialize({
+                            transition: 'concave',
+                            progress: true,
+                            history: true
+                            });
+                            hljs.initHighlightingOnLoad();
+        </script>
+    </body>
+</html>

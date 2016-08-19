@@ -1,0 +1,28 @@
+<StackLayout #applebin>
+    <Button text="Change the color" (tap)="change()"></Button>
+</StackLayout>
+
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {Color} from "color";
+import {View} from "ui/core/view";
+
+@Component({
+    selector: "my-app",
+    templateUrl: "app.component.html",
+})
+
+export class AppComponent {
+    @ViewChild("applebin") applebin: ElementRef;
+    public changed: boolean = false;
+
+    public change() {
+        this.changed = !this.changed;
+
+        // All Nativescript UI elements inherit from the View class 
+        let applebin = <View>this.applebin.nativeElement;
+        applebin.animate({
+            backgroundColor: this.changed ? new Color("lightgreen") : new Color("lightcoral"),
+            duration: 2000 
+        });
+    }
+}
